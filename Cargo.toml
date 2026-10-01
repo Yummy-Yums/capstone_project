@@ -1,0 +1,18 @@
+[package]
+name = "capstone_project"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+readme = "README.md"
+description = "A reusable Rust wallet library: key management, address derivation, UTXO tracking, coin selection, PSBT construction and signing, behind a clean API with a pluggable chain backend. Wraps bdk_wallet."
+
+
+[dependencies]
+bdk_wallet = { version = "1", default-features = false, features = ["std", "keys-bip39"] }
+bitcoin = "0.32"
+miniscript = "12"
+bip39 = { version = "2", default-features = false, features = ["std"] }
+thiserror = "1"
+
+[dev-dependencies]
+bdk_wallet = { version = "1", default-features = false, features = ["std", "keys-bip39", "test-utils"] }
