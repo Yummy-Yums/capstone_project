@@ -1,8 +1,6 @@
 # Wallet Library
 A reusable Rust crate that provides wallet functionality through a clean API for other developers to build on. This wraps bdk_wallet 
-internally, but never leaks it: the wallet engine is a private implementation detail, the chain data source is a trait an application plugs in, and the only Bitcoin-specific types in the public API are the foundational ones (bitcoin::Address, Amount, Psbt, ...) that any caller needs regardless of what sits underneath.
-
-``cargo test``
+internally, but never leaks it: the wallet engine is a private implementation detail, the chain data source is a trait an application plugs in, and the only Bitcoin-specific types in the public API are the foundational ones (bitcoin::Address, Amount, Psbt, ...) that any caller needs regardless of what sits underneath. Start with ``cargo test`` to begin
 
 # Runnable Examples
 
@@ -142,7 +140,7 @@ mock implementation and an end-to-end sync → build → sign → finalize test.
 `full_scan` was chosen as the only required method (over a cheaper
 incremental sync) because it's a strict superset of what incremental
 syncing accomplishes and is correct even for a freshly-restored wallet
-whose used addresses aren't known yet — see the doc comment on
+whose used addresses aren't known yet. See the doc comment on
 `ChainBackend` in [`src/backend.rs`](src/backend.rs) for the full
 reasoning, including how a backend can still implement a cheaper path
 internally.
